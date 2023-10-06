@@ -16,29 +16,37 @@ int main(void) {
   printf("d) Faro (Precio: $70)\n");
   printf("e) Radiador (Precio: $120)\n");
   scanf("%c",&select1);
+
+
+  
   switch(select1){
     case 'a':
       printf("Ingrese la cantidad de Llantas que desea comprar: ");
+      fflush(stdin);
       scanf("%f",&numa);
       subta=precioa*numa;
     break;
     case 'b':
       printf("Ingrese la cantidad de Pastillas de freno que desea comprar: ");
+      fflush(stdin);
       scanf("%f",&numb);
       subtb=preciob*numb;
     break;
     case 'c':
       printf("Ingrese la cantidad de Kit embrague de freno que desea comprar: ");
+      fflush(stdin);
       scanf("%f",&numc);
       subtc=preciob*numc;
     break;
     case 'd':
       printf("Ingrese la cantidad de faros que desea comprar: ");
+      fflush(stdin);
       scanf("%f",&numd);
       subtd=preciod*numd;
     break;
     case 'e':
       printf("Ingrese la cantidad de radiadores que desea comprar: ");
+      fflush(stdin);
       scanf("%f",&nume);
       subte=precioe*nume;
     break;
@@ -56,23 +64,25 @@ if (subtotal>100 && subtotal<=500){
 total=subtotaldes*1.12;
 
 printf("Ingrese el nombre del cliente\n");
+fflush(stdin);
 scanf("%s",&nombre);
 
 printf("Ingrese el numero de cedula\n");
+fflush(stdin);
 scanf("%s",&cedula);
 
 printf("---------------Factura--------------\n");
 printf("Nombre del cliente: %s\n",nombre);
 printf("Cedula del cliente: %s\n",cedula);
-printf("Producto\t\tCantidad\t\tSubtotal\n");
-printf("Llantas\t\t%f\t\t%f\n",numa,subta);
-printf("Pastillas Freno\t\t%f\t\t%f\n",numb,subtb);
-printf("Embrague\t\t%f\t\t%f\n",numc,subtc);
-printf("Faro\t\t%f\t\t%f\n",numd,subtd);
-printf("Radiador\t\t%f\t\t%f\n",nume,subte);
-printf("Sub total\t%f\n",subtotal);
-printf("Sub total con descuento\t%f\n",subtotaldes); 
-  printf("Total\t%f\n",total);
+printf("Producto\t\tCantidad\tSubtotal\n");
+printf("Llantas\t\t\t%.2f\t\t%.2f\n",numa,subta);
+printf("Pastillas Freno\t\t%.2f\t\t%.2f\n",numb,subtb);
+printf("Embrague\t\t%.2f\t\t%.2f\n",numc,subtc);
+printf("Faro\t\t\t%.2f\t\t%.2f\n",numd,subtd);
+printf("Radiador\t\t%.2f\t\t%.2f\n",nume,subte);
+printf("Sub total\t%.2f\n",subtotal);
+printf("Sub total con descuento\t%.2f\n",subtotaldes); 
+  printf("Total\t%.2f\n",total);
 
 
   return 0;
