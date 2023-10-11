@@ -1,54 +1,34 @@
 #include <stdio.h>
 
+ char imprimirMenu();
+float leerNumeroProducto(char producto[], float precio);
+  float numa=0, numb=0, numc=0, numd=0, nume=0;
+
 int main(void) {
 
-  float numa=0, numb=0, numc=0, numd=0, nume=0;
+
   float precioa=150, preciob=55, precioc=180, preciod=70, precioe=120;
-  char select1;
+ 
   float subta=0, subtb=0, subtc=0, subtd=0, subte=0, subtotal=0, subtotaldes=0, total=0;
   char nombre[50], cedula[20];
 
-  printf("---------------BIENVENIDOS-------------------------\n");
-  printf("Elija que producto desea facturar:\n");
-  printf("a) Llantas (Precio: $150)\n");
-  printf("b) Kit Pastillas de freno (Precio: $55)\n");
-  printf("c) Kit de embrague (Precio: $180)\n");
-  printf("d) Faro (Precio: $70)\n");
-  printf("e) Radiador (Precio: $120)\n");
-  scanf("%c",&select1);
-
-
+ char select1 = imprimirMenu();
   
   switch(select1){
     case 'a':
-      printf("Ingrese la cantidad de Llantas que desea comprar: ");
-      fflush(stdin);
-      scanf("%f",&numa);
-      subta=precioa*numa;
+      subta = leerNumeroProducto("Llantas",precioa,1);
     break;
     case 'b':
-      printf("Ingrese la cantidad de Pastillas de freno que desea comprar: ");
-      fflush(stdin);
-      scanf("%f",&numb);
-      subtb=preciob*numb;
+      subtb = leerNumeroProducto("Pastillas de freno",preciob,2);
     break;
     case 'c':
-      printf("Ingrese la cantidad de Kit embrague de freno que desea comprar: ");
-      fflush(stdin);
-      scanf("%f",&numc);
-      subtc=preciob*numc;
+      subtc = leerNumeroProducto("Kit de embrague",precioc,3);
     break;
     case 'd':
-      printf("Ingrese la cantidad de faros que desea comprar: ");
-      fflush(stdin);
-      scanf("%f",&numd);
-      subtd=preciod*numd;
+      subtd = leerNumeroProducto("faros",preciod,4);
     break;
     case 'e':
-      printf("Ingrese la cantidad de radiadores que desea comprar: ");
-      fflush(stdin);
-      scanf("%f",&nume);
-      subte=precioe*nume;
+      subte = leerNumeroProducto("radiadores",precioe,5);
     break;
   }
   subtotal=subta+subtb+subtc+subtd+subte;
@@ -86,4 +66,34 @@ printf("Sub total con descuento\t%.2f\n",subtotaldes);
 
 
   return 0;
+}
+
+char imprimirMenu(){
+  char select1;
+  printf("---------------BIENVENIDOS-------------------------\n");
+  printf("Elija que producto desea facturar:\n");
+  printf("a) Llantas (Precio: $150)\n");
+  printf("b) Kit Pastillas de freno (Precio: $55)\n");
+  printf("c) Kit de embrague (Precio: $180)\n");
+  printf("d) Faro (Precio: $70)\n");
+  printf("e) Radiador (Precio: $120)\n");
+  scanf("%c",&select1);
+  return select1;
+}
+
+float leerNumeroProducto(char producto[], float precio, int numProd){
+
+  float num, subtotal;
+ 
+  printf("Ingrese la cantidad de %s que desea comprar: ",producto);
+  fflush(stdin);
+  scanf("%f",&num);
+  if (numProd==1){
+    numa=num;
+  }
+   if (numProd==2){
+    numb=num;
+  }
+  subtotal = num*precio;
+  return subtotal;
 }
